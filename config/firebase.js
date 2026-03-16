@@ -22,7 +22,7 @@ try {
                 clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
                 privateKey: cleanedKey,
             };
-        } 
+        }
         // 2. Fallback to JSON file (Local Dev)
         else {
             const serviceAccountPath = path.join(__dirname, "firebaseServiceAccount.json");
