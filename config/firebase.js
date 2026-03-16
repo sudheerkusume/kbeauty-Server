@@ -10,11 +10,17 @@ try {
         // 1. Check for Environment Variables (Production/Render)
         if (process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY) {
             console.log("Using Firebase environment variables");
+            
+            // Clean the private key: remove quotes, handle escaped newlines, and trim
+            const cleanedKey = process.env.FIREBASE_PRIVATE_KEY
+                .replace(/"/g, '')
+                .replace(/\\n/g, '\n')
+                .trim();
+
             serviceAccount = {
                 projectId: process.env.FIREBASE_PROJECT_ID,
                 clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-                // Replace escaped \n with actual newlines
-                privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+                privateKey: cleanedKey,
             };
         } 
         // 2. Fallback to JSON file (Local Dev)
