@@ -1,0 +1,25 @@
+﻿branch 'main' set up to track 'origin/main'.
+git : To https://githu
+b.com/sudheerkusume/kb
+eauty-Server.git
+At line:1 char:191
++ ... sume/kbeauty-Ser
+ver.git; git push -u 
+origin main --force 
+2>&1 | Out-F ...
++                     
+         ~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (To https:/   
+ /gith...auty-Serv    
+er.git:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+ * [new branch]      
+main -> main
