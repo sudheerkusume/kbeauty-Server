@@ -30,7 +30,8 @@ const corsOptions = {
             "http://localhost:5173",
             "http://127.0.0.1:3000",
             "http://127.0.0.1:3001",
-            "https://project1-copy.vercel.app"
+            "https://project1-copy.vercel.app",
+            "https://kbeauty-client.vercel.app"
         ];
         if (!origin || whitelist.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
             callback(null, true);
