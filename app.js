@@ -20,6 +20,7 @@ require("./config/firebase");
 logger.info("Firebase Admin initialized via production service account");
 
 const app = express();
+app.set('trust proxy', 1); // Trust the first proxy (Render)
 
 const corsOptions = {
     origin: (origin, callback) => {
