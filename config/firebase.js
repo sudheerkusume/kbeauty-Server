@@ -11,11 +11,21 @@ try {
         if (process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY) {
             console.log("Using Firebase environment variables");
             
-            // Clean the private key: remove quotes, handle escaped newlines, and trim
-            const cleanedKey = process.env.FIREBASE_PRIVATE_KEY
-                .replace(/"/g, '')
-                .replace(/\\n/g, '\n')
+            // Log key length and start/end (SAFE debugging)
+            const rawKey = process.env.FIREBASE_PRIVATE_KEY;
+            console.log(`Raw Key length: ${rawKey.length}`);
+            console.log(`Raw Key starts with: ${rawKey.substring(0, 30)}...`);
+            console.log(`Raw Key ends with: ...${rawKey.substring(rawKey.length - 30)}`);
+
+            // Clean the private key: handle quotes, true newlines, and escaped newlines
+            let cleanedKey = rawKey
+                .replace(/"/g, '') // Remove double quotes
                 .trim();
+            
+            // If it doesn't contain true newlines, but contains \n, replace them
+            if (!cleanedKey.includes('\n') && cleanedKey.includes('\\n')) {
+                cleanedKey = cleanedKey.replace(/\\n/g, '\n');
+            }
 
             serviceAccount = {
                 projectId: process.env.FIREBASE_PROJECT_ID,
