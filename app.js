@@ -94,7 +94,7 @@ app.use("/wishlist", wishlistRoutes);
 
 
 app.get("/", (req, res) => {
-    res.send("KBeautyMart API Running");
+    res.send("KBeautyMart API is running 🚀");
 });
 
 // Final Error Handling Middleware
