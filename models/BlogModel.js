@@ -7,6 +7,6 @@ const BlogSchema = new mongoose.Schema({
     img: String,
     Question: String,
     Answer: String
-})
+}, { timestamps: true });
 
 module.exports = mongoose.model("BlogPost", BlogSchema);

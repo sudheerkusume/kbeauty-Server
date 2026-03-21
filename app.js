@@ -78,6 +78,7 @@ console.log("Loading Payment Routes...");
 app.use("/api/payment", require("./routes/paymentRoutes"));
 console.log("Payment Routes Registered");
 app.use("/blogPosts", blogRoutes);
+app.use("/blogs", blogRoutes);
 app.use("/brands", brandRoutes);
 app.use("/categories", categoryRoutes);
 app.use("/types", typeRoutes);
