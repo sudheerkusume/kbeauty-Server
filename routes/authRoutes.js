@@ -109,7 +109,7 @@ router.get("/Account", verifyToken, async (req, res) => {
 // 🔹 Update User Profile
 router.put("/update-profile", verifyToken, async (req, res) => {
     try {
-        const { name, email, address } = req.body;
+        const { name, email, password, address } = req.body;
         const userId = req.user.id;
 
         const user = await Fuser.findById(userId);
@@ -136,6 +136,12 @@ router.put("/update-profile", verifyToken, async (req, res) => {
 
         if (name) user.name = name;
         if (address !== undefined) user.address = address; // Allow empty string for address
+
+        // Password update logic
+        if (password) {
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash(password, salt);
+        }
 
         await user.save();
 
