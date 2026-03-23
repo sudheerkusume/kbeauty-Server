@@ -63,14 +63,14 @@ const sendOrderConfirmationEmail = async (userEmail, order) => {
                 </div>
 
                 <div style="text-align: center; margin-top: 40px; color: #888; font-size: 12px;">
-                    <p>If you have any questions, contact us at support@kglowmart.in</p>
+                    <p>If you have any questions, contact us at support@kbeautymart.shop</p>
                     <p>&copy; ${new Date().getFullYear()} K Beauty Mart. All rights reserved.</p>
                 </div>
             </div>
         `;
 
         const { data, error } = await resend.emails.send({
-            from: "K Beauty Mart <noreply@kglowmart.in>",
+            from: "K Beauty Mart <noreply@kbeautymart.shop>",
             to: userEmail,
             subject: `Order Confirmation - #${order._id}`,
             html: emailBody,

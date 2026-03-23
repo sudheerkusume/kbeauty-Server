@@ -27,6 +27,8 @@ const corsOptions = {
         const whitelist = [
             "https://kglowmart.in",
             "https://www.kglowmart.in",
+            "https://kbeautymart.shop",
+            "https://www.kbeautymart.shop",
             "http://localhost:3000",
             "http://localhost:3001",
             "http://localhost:5173",
